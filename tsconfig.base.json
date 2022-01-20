@@ -1,0 +1,39 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2020",
+    "module": "esnext",
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@flights-data/data-flight": [
+        "libs/data-flight/src/index.ts"
+      ],
+      "@flights-data/feature-flight-logic": [
+        "libs/feature-flight-logic/src/index.ts"
+      ],
+      "@flights-data/ui-navbar": [
+        "libs/ui-navbar/src/index.ts"
+      ],
+      "@flights-data/util-filter": [
+        "libs/util-filter/src/index.ts"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
+}

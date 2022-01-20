@@ -1,0 +1,16 @@
+<nav class="navbar navbar-light bg-success">
+  <div class="container-fluid container-div">
+    <div class="col-4">
+      <a class="navbar-brand mx-4" [routerLink]="['/']">
+        <span class="badge bg-warning text-dark">AIRPORT</span>
+      </a>
+    </div>
+    <div class="col-8 d-flex justify-content-end">
+      <button class="btn btn-warning mx-2" [routerLink]="['/viewFlights']">
+        View FLights
+      </button>
+      <button class="btn btn-warning mx-2">More</button>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>
