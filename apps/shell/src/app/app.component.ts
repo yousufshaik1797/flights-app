@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
   title = 'shell';
   constructor(private _AppService: AppService) {}
   ngOnInit(): void {
-    // this.GetRoles();
+    this.GetRoles();
   }
 
   GetRoles() {
