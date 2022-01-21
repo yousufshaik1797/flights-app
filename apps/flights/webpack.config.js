@@ -11,7 +11,8 @@ sharedMappings.register(
 module.exports = {
   output: {
     uniqueName: "flights",
-    publicPath: "auto"
+    publicPath: "auto"      //Local
+    // publicPath: "https://view-flights.azurewebsites.net/"       //Deployed
   },
   optimization: {
     runtimeChunk: false

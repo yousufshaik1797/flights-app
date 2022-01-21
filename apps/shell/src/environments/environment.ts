@@ -4,6 +4,10 @@
 
 export const environment = {
   production: false,
+  clientId: 'b84b13fd-db72-4552-b32d-e48fcccbb9da',
+  redirectUrl: 'http://localhost:5000/',
+  authority: 'https://login.microsoftonline.com/{8f6bd982-92c3-4de0-985d-0e287c55e379}/',
+  scopes: ['api://b84b13fd-db72-4552-b32d-e48fcccbb9da/user_impersonation']
 };
 
 /*
