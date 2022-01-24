@@ -1,0 +1,29 @@
+table {
+  font-family: Georgia, serif;
+  border-collapse: collapse;
+  width: 100%;
+  justify-content: center;
+}
+.tHead {
+  width: 2rem;
+  background-color: #d5d8dc;
+}
+
+td,
+th {
+  border: 1px solid #aed6f1;
+  text-align: left;
+  padding: 0.5rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+tr:nth-child(even) {
+  width: 2rem;
+  background-color: #fae5d3;
+}
+
+tr:nth-child(odd) {
+  width: 2rem;
+  background-color: #d0ece7;
+}
