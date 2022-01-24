@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FlightApiService } from '@flights-data/data-flight';
+import { Flight } from '@flights-data/feature-flight-logic';
 import { Subscription } from 'rxjs';
 @Component({
   selector: 'flights-data-flight-table',
@@ -10,9 +11,9 @@ import { Subscription } from 'rxjs';
 export class FlightTableComponent implements OnInit {
   constructor(private _flightApiService: FlightApiService) {}
   flightData$!: Subscription;
-  flightList: any;
+  flightList!: Flight[];
   destination: string = '';
-
+  tHeads:string[] = ["Id", "From", "To", "Departure"]
   dropdown = [
     { value: 'from', descrption: 'Origin' },
     { value: 'to', descrption: 'Destination' },
