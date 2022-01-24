@@ -9,9 +9,7 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/data-flight"
-          ],
+          "outputs": ["coverage/libs/data-flight"],
           "options": {
             "jestConfig": "libs/data-flight/jest.config.js",
             "passWithNoTests": true
@@ -37,9 +35,7 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/feature-flight-logic"
-          ],
+          "outputs": ["coverage/libs/feature-flight-logic"],
           "options": {
             "jestConfig": "libs/feature-flight-logic/jest.config.js",
             "passWithNoTests": true
@@ -64,16 +60,12 @@
       "architect": {
         "build": {
           "builder": "@nrwl/node:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/flight-api",
             "main": "apps/flight-api/src/main.ts",
             "tsConfig": "apps/flight-api/tsconfig.app.json",
-            "assets": [
-              "apps/flight-api/src/assets"
-            ]
+            "assets": ["apps/flight-api/src/assets"]
           },
           "configurations": {
             "production": {
@@ -97,20 +89,14 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/flight-api/**/*.ts"
-            ]
+            "lintFilePatterns": ["apps/flight-api/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/flight-api"
-          ],
+          "outputs": ["coverage/apps/flight-api"],
           "options": {
             "jestConfig": "apps/flight-api/jest.config.js",
             "passWithNoTests": true
@@ -127,9 +113,7 @@
       "architect": {
         "build": {
           "builder": "@nrwl/angular:webpack-browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/flights",
             "index": "apps/flights/src/index.html",
@@ -145,9 +129,7 @@
               "apps/flights/src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
-            ],
+            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.min.js"],
             "customWebpackConfig": {
               "path": "apps/flights/webpack.config.js"
             },
@@ -223,9 +205,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/flights"
-          ],
+          "outputs": ["coverage/apps/flights"],
           "options": {
             "jestConfig": "apps/flights/jest.config.js",
             "passWithNoTests": true
@@ -253,20 +233,14 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/flights-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/flights-e2e/**/*.{js,ts}"]
           }
         }
       },
       "tags": [],
-      "implicitDependencies": [
-        "flights"
-      ]
+      "implicitDependencies": ["flights"]
     },
     "shell": {
       "projectType": "application",
@@ -276,9 +250,7 @@
       "architect": {
         "build": {
           "builder": "@nrwl/angular:webpack-browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/shell",
             "index": "apps/shell/src/index.html",
@@ -286,17 +258,12 @@
             "polyfills": "apps/shell/src/polyfills.ts",
             "tsConfig": "apps/shell/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "apps/shell/src/favicon.ico",
-              "apps/shell/src/assets"
-            ],
+            "assets": ["apps/shell/src/favicon.ico", "apps/shell/src/assets"],
             "styles": [
               "apps/shell/src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
-            ],
+            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.min.js"],
             "customWebpackConfig": {
               "path": "apps/shell/webpack.config.js"
             },
@@ -372,9 +339,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/shell"
-          ],
+          "outputs": ["coverage/apps/shell"],
           "options": {
             "jestConfig": "apps/shell/jest.config.js",
             "passWithNoTests": true
@@ -402,20 +367,14 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/shell-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/shell-e2e/**/*.{js,ts}"]
           }
         }
       },
       "tags": [],
-      "implicitDependencies": [
-        "shell"
-      ]
+      "implicitDependencies": ["shell"]
     },
     "ui-navbar": {
       "projectType": "library",
@@ -425,9 +384,7 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui-navbar"
-          ],
+          "outputs": ["coverage/libs/ui-navbar"],
           "options": {
             "jestConfig": "libs/ui-navbar/jest.config.js",
             "passWithNoTests": true
@@ -445,6 +402,91 @@
       },
       "tags": []
     },
+    "ui-view-flights": {
+      "projectType": "library",
+      "root": "libs/ui-view-flights",
+      "sourceRoot": "libs/ui-view-flights/src",
+      "prefix": "flights-data",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui-view-flights"],
+          "options": {
+            "jestConfig": "libs/ui-view-flights/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui-view-flights/src/**/*.ts",
+              "libs/ui-view-flights/src/**/*.html"
+            ]
+          }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/ui-view-flights/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook/ui-view-flights",
+            "config": {
+              "configFolder": "libs/ui-view-flights/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        }
+      },
+      "tags": []
+    },
+    "ui-view-flights-e2e": {
+      "root": "apps/ui-view-flights-e2e",
+      "sourceRoot": "apps/ui-view-flights-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/ui-view-flights-e2e/cypress.json",
+            "devServerTarget": "ui-view-flights:storybook"
+          },
+          "configurations": {
+            "ci": {
+              "devServerTarget": "ui-view-flights:storybook:ci"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/ui-view-flights-e2e/**/*.{js,ts}"]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": ["ui-view-flights"]
+    },
     "util-filter": {
       "projectType": "library",
       "root": "libs/util-filter",
@@ -453,9 +495,7 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/util-filter"
-          ],
+          "outputs": ["coverage/libs/util-filter"],
           "options": {
             "jestConfig": "libs/util-filter/jest.config.js",
             "passWithNoTests": true
