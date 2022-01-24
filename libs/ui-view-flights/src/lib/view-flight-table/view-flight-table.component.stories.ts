@@ -7,16 +7,74 @@ export default {
   decorators: [
     moduleMetadata({
       imports: [],
-    })
+    }),
   ],
 } as Meta<ViewFlightTableComponent>;
 
-const Template: Story<ViewFlightTableComponent> = (args: ViewFlightTableComponent) => ({
+const Template: Story<ViewFlightTableComponent> = (
+  args: ViewFlightTableComponent
+) => ({
   component: ViewFlightTableComponent,
   props: args,
 });
 
-
 export const Primary = Template.bind({});
 Primary.args = {
-}
+  tableHeader: ['Heading1', 'Heading1', 'Heading1', 'Heading1'],
+  tableData: [
+    {
+      id: 1,
+      from: 'Visakapatnam',
+      to: 'Mallorca',
+      date: new Date().toISOString(),
+    },
+    {
+      id: 2,
+      from: 'Washington',
+      to: 'Barcelona',
+      date: new Date().toISOString(),
+    },
+    {
+      id: 3,
+      from: 'Mallorca',
+      to: 'Ibiza',
+      date: new Date().toISOString(),
+    },
+    {
+      id: 3,
+      from: 'Mallorca',
+      to: 'Ibiza',
+      date: new Date().toISOString(),
+    },
+    {
+      id: 3,
+      from: 'Mallorca',
+      to: 'Ibiza',
+      date: new Date().toISOString(),
+    },
+    {
+      id: 3,
+      from: 'Mallorca',
+      to: 'Ibiza',
+      date: new Date().toISOString(),
+    },
+    {
+      id: 3,
+      from: 'Mallorca',
+      to: 'Ibiza',
+      date: new Date().toISOString(),
+    },
+    {
+      id: 3,
+      from: 'Mallorca',
+      to: 'Ibiza',
+      date: new Date().toISOString(),
+    },
+    {
+      id: 4,
+      from: 'Visakapatnam',
+      to: 'Tirupathi',
+      date: new Date().toISOString(),
+    },
+  ],
+};

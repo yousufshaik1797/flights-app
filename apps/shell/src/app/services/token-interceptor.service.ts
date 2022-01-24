@@ -32,7 +32,6 @@ export class TokenInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     debugger;
-    console.log(sessionStorage.getItem('token'));
     request = request.clone({
       setHeaders: {
         Authorization: `Bearer ${sessionStorage

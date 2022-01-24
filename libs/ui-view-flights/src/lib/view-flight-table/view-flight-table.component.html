@@ -1,8 +1,8 @@
 <table>
-  <tr >
-    <th class="tHead" *ngFor="let one of tableHeader">{{one}}</th>
+  <tr>
+    <th class="tHead" *ngFor="let one of tableHeader">{{ one }}</th>
   </tr>
-  <tr *ngFor="let flight of tableData" >
+  <tr *ngFor="let flight of tableData">
     <td>{{ flight.id }}</td>
     <td>{{ flight.from }}</td>
     <td>{{ flight.to }}</td>

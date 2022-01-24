@@ -19,35 +19,31 @@ export class AppComponent implements OnInit {
     private authService: MsalService
   ) {}
   ngOnInit(): void {
-    // debugger;
-    // this.authService.instance.handleRedirectPromise().then((res) => {
-    //   const value = sessionStorage.getItem('account') ?? '';
-    //   const token = sessionStorage.getItem('token') ?? '';
-    //   let account: AccountInfo | null = null;
-    //   let tokenInfo: string | null = null;
-    //   if (value) {
-    //     account = JSON.parse(value) as AccountInfo;
-    //   }
-    //   if (token) {
-    //     tokenInfo = JSON.parse(token);
-    //   }
-    //   if (account && tokenInfo && !this.tokenExpired(tokenInfo)) {
-    //     this.authService.instance.setActiveAccount(account);
-    //     this.canShow = true;
-    //     this.GetRoles();
-    //   } else if (res?.account) {
-    //     this.currentAccount = res.account;
-    //     sessionStorage.setItem('account', JSON.stringify(res.account));
-    //     sessionStorage.setItem('token', JSON.stringify(res.accessToken));
-    //     this.getToken();
-
-    //     this.authService.instance.setActiveAccount(res.account);
-    //     this.canShow = true;
-    //     this.GetRoles();
-    //   } else {
-    //     this.login();
-    //   }
-    // });
+    debugger;
+    this.authService.instance.handleRedirectPromise().then((res) => {
+      const value = sessionStorage.getItem('account') ?? '';
+      const token = sessionStorage.getItem('token') ?? '';
+      let account: AccountInfo | null = null;
+      let tokenInfo: string | null = null;
+      if (value) {
+        account = JSON.parse(value) as AccountInfo;
+      }
+      if (token) {
+        tokenInfo = JSON.parse(token);
+      }
+      if (account && tokenInfo && !this.tokenExpired(tokenInfo)) {
+        this.authService.instance.setActiveAccount(account);
+        this.canShow = true;
+        this.GetRoles();
+      } else if (res?.account) {
+        this.currentAccount = res.account;
+        sessionStorage.setItem('account', JSON.stringify(res.account));
+        sessionStorage.setItem('token', JSON.stringify(res.accessToken));
+        this.getToken();
+      } else {
+        this.login();
+      }
+    });
   }
 
   login() {
@@ -67,20 +63,34 @@ export class AppComponent implements OnInit {
     var tokenRequest = {
       scopes: environment.scopes,
     };
-    this.authService.acquireTokenSilent(accessTokenRequest).subscribe({
-      next: this.handleUpdateResponse.bind(this),
-      error: this.handleError.bind(this),
-    });
+    this.authService
+      .acquireTokenPopup(accessTokenRequest)
+      .subscribe((result) => {
+        next: {
+          debugger;
+          sessionStorage.setItem('token', JSON.stringify(result.accessToken));
+          this.canShow = true;
+          this.authService.instance.setActiveAccount(result.account);
+          this.GetRoles();
+        }
+        error: (err: any) => {
+          if (err.name === 'InteractionRequiredAuthError') {
+            this.authService
+              .acquireTokenPopup(tokenRequest)
+              .subscribe((response) => {
+                debugger;
+
+                sessionStorage.setItem(
+                  'token',
+                  JSON.stringify(response.accessToken)
+                );
+                this.authService.instance.setActiveAccount(result.account);
+              });
+          }
+        };
+      });
   }
 
-  handleUpdateResponse(a: any) {
-    debugger;
-    console.log(a);
-  }
-
-  handleError() {
-    console.log('handled updated res');
-  }
   GetRoles() {
     this._AppService.getAllRoles().subscribe((roles) => {
       debugger;
