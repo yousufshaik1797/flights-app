@@ -1,0 +1,72 @@
+<div class="container">
+  <form [formGroup]="addFlightsData">
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Id</span>
+      <input
+        type="id"
+        name="id"
+        class="form-control"
+        placeholder="Enter flight id"
+        aria-label="id"
+        aria-describedby="basic-addon1"
+        formControlName="id"
+        autocomplete="off"
+      />
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">From</span>
+      <input
+        type="from"
+        name="from"
+        class="form-control"
+        placeholder="From"
+        aria-label="id"
+        aria-describedby="basic-addon1"
+        formControlName="from"
+        autocomplete="off"
+      />
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">To</span>
+      <input
+        type="to"
+        name="to"
+        class="form-control"
+        placeholder="To"
+        aria-label="id"
+        aria-describedby="basic-addon1"
+        formControlName="to"
+        autocomplete="off"
+      />
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Departure</span>
+      <input
+        type="departure"
+        name="departure"
+        class="form-control"
+        placeholder="Departure"
+        aria-label="id"
+        aria-describedby="basic-addon1"
+        formControlName="departure"
+        autocomplete="off"
+      />
+    </div>
+    <button
+      class="btn btn-primary"
+      (click)="Submit()"
+      [disabled]="!addFlightsData.valid"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+
+<div *ngIf="showPopup">
+  <flights-data-popup
+    [message]="message"
+    [popUpTitle]="popUpTitle"
+    [showYesButon]="true"
+    [showNoButon]="true"
+  ></flights-data-popup>
+</div>

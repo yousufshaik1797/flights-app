@@ -38,8 +38,8 @@ module.exports = {
         // For hosts (please adjust)
         remotes: {
             // "flightApi": "http://localhost:4200/remoteEntry.js",
-            "flights": "http://localhost:4200/remoteEntry.js",    //Local
-            // "flights": "https://view-flights.azurewebsites.net/remoteEntry.js"      //Deployed
+            "flights": "http://localhost:4200/remoteEntry.js",    //Local     // "flights": "https://view-flights.azurewebsites.net/remoteEntry.js"      //Deployed
+            "add-flights": "http://localhost:8080/remoteEntry.js",    //Local     // "flights": ""      //Deployed
 
         },
 
