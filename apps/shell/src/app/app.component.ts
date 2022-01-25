@@ -3,7 +3,6 @@ import { MsalService } from '@azure/msal-angular';
 import { AccountInfo } from '@azure/msal-common';
 import { environment } from '../environments/environment';
 import { AvailableMicroFrontEndsClient } from './services/app-data.service';
-import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'flights-data-root',
@@ -14,12 +13,17 @@ export class AppComponent implements OnInit {
   title = 'shell';
   currentAccount: any;
   canShow: boolean = false;
+
+  showMFE1: boolean | undefined = false;
+  showMFE2: boolean | undefined = false;
+  showMFE3: boolean | undefined = false;
+
   constructor(
     private _AppService: AvailableMicroFrontEndsClient,
     private authService: MsalService
   ) {}
   ngOnInit(): void {
-    debugger;
+    // debugger;
     this.authService.instance.handleRedirectPromise().then((res) => {
       const value = sessionStorage.getItem('account') ?? '';
       const token = sessionStorage.getItem('token') ?? '';
@@ -64,10 +68,10 @@ export class AppComponent implements OnInit {
       scopes: environment.scopes,
     };
     this.authService
-      .acquireTokenPopup(accessTokenRequest)
+      .acquireTokenSilent(accessTokenRequest)
       .subscribe((result) => {
         next: {
-          debugger;
+          // debugger;
           sessionStorage.setItem('token', JSON.stringify(result.accessToken));
           this.canShow = true;
           this.authService.instance.setActiveAccount(result.account);
@@ -76,9 +80,9 @@ export class AppComponent implements OnInit {
         error: (err: any) => {
           if (err.name === 'InteractionRequiredAuthError') {
             this.authService
-              .acquireTokenPopup(tokenRequest)
+              .acquireTokenSilent(tokenRequest)
               .subscribe((response) => {
-                debugger;
+                // debugger;
 
                 sessionStorage.setItem(
                   'token',
@@ -94,7 +98,9 @@ export class AppComponent implements OnInit {
   GetRoles() {
     this._AppService.getAllRoles().subscribe((roles) => {
       debugger;
-      console.log(roles);
+      this.showMFE1 = roles.microFrontEnd1;
+      this.showMFE2 = roles.microFrontEnd2;
+      this.showMFE3 = roles.microFrontEnd3;
     });
   }
 }

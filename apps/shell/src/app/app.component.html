@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light bg-success" >
+<nav class="navbar navbar-light bg-success">
   <div class="container-fluid container-div">
     <div class="col-4">
       <a class="navbar-brand mx-4" [routerLink]="['/']">
@@ -6,10 +6,10 @@
       </a>
     </div>
     <div class="col-8 d-flex justify-content-end">
-      <button class="btn btn-warning mx-2" [routerLink]="['/viewFlights']">
+      <button *ngIf="showMFE1" class="btn btn-warning mx-2" [routerLink]="['/viewFlights']">
         View FLights
       </button>
-      <button class="btn btn-warning mx-2">More</button>
+      <button *ngIf="showMFE2" class="btn btn-warning mx-2" [routerLink]="['/addFlights']">Add Flights</button>
     </div>
   </div>
 </nav>

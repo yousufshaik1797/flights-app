@@ -11,11 +11,13 @@ import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { TokenInterceptor } from './services/token-interceptor.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 const ROUTES:Routes = [
   {path:'',component: WelcomeComponent},
-  {path:'viewFlights', loadChildren:()=> import('flights/Module').then((m)=> m.ViewFlightDataModule)}
+  {path:'viewFlights', loadChildren:()=> import('flights/Module').then((m)=> m.ViewFlightDataModule)},
+  {path:'addFlights', loadChildren:()=> import('add-flights/Module').then((m)=> m.NewFlightModule)},
 ]
 
 
